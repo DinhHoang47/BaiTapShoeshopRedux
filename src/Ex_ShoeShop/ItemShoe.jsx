@@ -18,7 +18,8 @@ class ItemShoe extends Component {
                 this.props.handleAddToCart(this.props.detail);
               }}
               ref="#"
-              className="btn btn-primary"
+              className="btn"
+              style={{ backgroundColor: "#FF4569", color: "white" }}
             >
               Add to cart
             </button>

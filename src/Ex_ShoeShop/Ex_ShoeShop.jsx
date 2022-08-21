@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import CartModal from "./CartModal";
 import { shoeArr } from "./data_shoe";
 import GioHang from "./GioHang";
+import Header from "./Header";
 import ListShoe from "./ListShoe";
 import ViewDetailModal from "./ViewDetailModal";
 class Ex_ShoeShop extends Component {
@@ -59,7 +61,13 @@ class Ex_ShoeShop extends Component {
   render() {
     return (
       <div>
-        <GioHang
+        <Header />
+        {/* <GioHang
+          handleDeleteItem={this.handleDeleteItem}
+          changeQuantityInCart={this.handleChangeQuantity}
+          cartListData={this.state.cartList}
+        /> */}
+        <CartModal
           handleDeleteItem={this.handleDeleteItem}
           changeQuantityInCart={this.handleChangeQuantity}
           cartListData={this.state.cartList}

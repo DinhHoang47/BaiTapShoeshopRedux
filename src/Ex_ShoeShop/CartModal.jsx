@@ -55,24 +55,37 @@ class CartModal extends Component {
   };
   render() {
     return (
-      <div className="container">
-        <h2>Cart List</h2>
-        <p></p>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Shoe</th>
-              <th>Price</th>
-              <th>Image</th>
-              <th>Quantity</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderTbody()}</tbody>
-        </table>
-        {this.props.cartListData.length == 0 && (
-          <p className="my-5 text-center">Chưa có sản phẩm trong giỏ hàng</p>
-        )}
+      <div
+        style={{
+          border: "1px solid #ff4569",
+          marginTop: "67px",
+          backgroundColor: "rgba(245, 232, 239, 0.8)",
+        }}
+        className="container collapse fixed-top"
+        id="collapseExample"
+      >
+        <div
+          style={{ backgroundColor: "rgba(245, 232, 239, 0.8)" }}
+          className="card card-body"
+        >
+          <h2>Cart List</h2>
+          <p></p>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Shoe</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderTbody()}</tbody>
+          </table>
+          {this.props.cartListData.length == 0 && (
+            <p className="my-5 text-center">Chưa có sản phẩm trong giỏ hàng</p>
+          )}
+        </div>
       </div>
     );
   }
