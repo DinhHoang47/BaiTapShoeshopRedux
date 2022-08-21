@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.table td{
+  line-height: 50px;
+}
+
+.btn {
+  font-size: 14px;
+}
+
+.card-body{
+  min-height: 270px;
+}
+
+.card{
+  border:none;
+}
+.custom-card{
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.card-text{
+  min-height: 120px;
+}
