@@ -29,6 +29,9 @@ class ItemShoe extends Component {
               }}
               href="#"
               className="btn btn-dark"
+              data-toggle="modal"
+              type="button"
+              data-target="#myModal"
             >
               View Detail
             </button>
