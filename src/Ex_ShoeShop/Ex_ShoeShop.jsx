@@ -59,10 +59,7 @@ class Ex_ShoeShop extends Component {
     return (
       <div>
         <Header />
-        <CartModal
-        // handleDeleteItem={this.handleDeleteItem}
-        // changeQuantityInCart={this.handleChangeQuantity}
-        />
+        <CartModal />
         <ListShoe />
         <ViewDetailModal />
       </div>

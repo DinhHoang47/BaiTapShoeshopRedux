@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { CHANGE_INCART_QUANTITY, DELETE } from "./redux/const/shoeConstants";
 
 class CartModal extends Component {
   renderTbody = () => {
@@ -13,13 +14,8 @@ class CartModal extends Component {
           </td>
           <td>
             <button
-              data-id={item.id}
-              data-type="decrease"
-              onClick={(e) => {
-                this.props.changeQuantityInCart(
-                  e.target.getAttribute("data-type"),
-                  e.target.getAttribute("data-id")
-                );
+              onClick={() => {
+                this.props.changeQuantityInCart("decrease", item.id);
               }}
               className="btn btn-light btn-outline-dark"
             >
@@ -27,13 +23,8 @@ class CartModal extends Component {
             </button>
             <span className="px-3">{item.inCartQuantity}</span>
             <button
-              data-id={item.id}
-              data-type="increase"
               onClick={(e) => {
-                this.props.changeQuantityInCart(
-                  e.target.getAttribute("data-type"),
-                  e.target.getAttribute("data-id")
-                );
+                this.props.changeQuantityInCart("increase", item.id);
               }}
               className="btn btn-light btn-outline-dark"
             >
@@ -42,7 +33,8 @@ class CartModal extends Component {
           </td>
           <td>
             <button
-              onClick={() => {
+              data-id={item.id}
+              onClick={(e) => {
                 this.props.handleDeleteItem(item.id);
               }}
               className="btn btn-warning"
@@ -98,4 +90,18 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(CartModal);
+let mapDispatchToProps = (dispatch) => {
+  return {
+    changeQuantityInCart: (type, id) => {
+      dispatch({
+        type: CHANGE_INCART_QUANTITY,
+        payload: { type, id },
+      });
+    },
+    handleDeleteItem: (id) => {
+      dispatch({ type: DELETE, payload: id });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartModal);
