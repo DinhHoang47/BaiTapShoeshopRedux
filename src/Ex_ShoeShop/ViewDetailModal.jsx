@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 class ViewDetailModal extends Component {
   render() {
-    console.log("render detail");
     let { image, name, price, description } = this.props.detailShoe;
     return (
       <div className="modal fade" id="myModal">

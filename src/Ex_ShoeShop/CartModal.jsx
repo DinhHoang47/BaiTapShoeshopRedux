@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class CartModal extends Component {
   renderTbody = () => {
@@ -91,4 +92,10 @@ class CartModal extends Component {
   }
 }
 
-export default CartModal;
+let mapStateToProps = (state) => {
+  return {
+    cartListData: state.shoeReducer.cartList,
+  };
+};
+
+export default connect(mapStateToProps)(CartModal);
