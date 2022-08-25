@@ -12,7 +12,6 @@ class Header extends Component {
             <img
               style={{ height: "51px" }}
               src="https://seeklogo.com/images/P/Pink_Panther-logo-309B8AC122-seeklogo.com.png"
-              alt
             />
             <span
               className="pl-4"

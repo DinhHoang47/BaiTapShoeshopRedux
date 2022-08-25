@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { ADD_TO_CART, VIEW_DETAIL } from "./redux/const/shoeConstants";
 
 class ItemShoe extends Component {
   render() {
@@ -43,4 +45,23 @@ class ItemShoe extends Component {
   }
 }
 
-export default ItemShoe;
+const mapStateToProps = (state) => ({});
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    handleAddToCart: (value) => {
+      dispatch({
+        type: ADD_TO_CART,
+        payload: value,
+      });
+    },
+    handleViewDetail: (value) => {
+      dispatch({
+        type: VIEW_DETAIL,
+        payload: value,
+      });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemShoe);

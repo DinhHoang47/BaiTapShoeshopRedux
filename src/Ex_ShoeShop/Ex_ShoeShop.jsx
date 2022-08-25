@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import CartModal from "./CartModal";
 import { shoeArr } from "./data_shoe";
-import GioHang from "./GioHang";
 import Header from "./Header";
 import ListShoe from "./ListShoe";
 import ViewDetailModal from "./ViewDetailModal";
+
 class Ex_ShoeShop extends Component {
   state = {
     shoeArr: shoeArr,
@@ -27,9 +27,6 @@ class Ex_ShoeShop extends Component {
     this.setState({
       cartList: cloneCart,
     });
-  };
-  handleAddToCart2 = () => {
-    console.log("test");
   };
   handleChangeQuantity = (action, id) => {
     let itemId = id;
@@ -62,23 +59,13 @@ class Ex_ShoeShop extends Component {
     return (
       <div>
         <Header />
-        {/* <GioHang
-          handleDeleteItem={this.handleDeleteItem}
-          changeQuantityInCart={this.handleChangeQuantity}
-          cartListData={this.state.cartList}
-        /> */}
         <CartModal
           handleDeleteItem={this.handleDeleteItem}
           changeQuantityInCart={this.handleChangeQuantity}
           cartListData={this.state.cartList}
         />
-
-        <ListShoe
-          data={this.state.shoeArr}
-          handleAddToCart={this.handleAddToCart}
-          handleViewDetail={this.handleViewDetail}
-        />
-        <ViewDetailModal detailShoe={this.state.detailShoe} />
+        <ListShoe />
+        <ViewDetailModal />
       </div>
     );
   }

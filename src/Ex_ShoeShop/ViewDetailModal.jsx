@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class ViewDetailModal extends Component {
   render() {
+    console.log("render detail");
     let { image, name, price, description } = this.props.detailShoe;
     return (
       <div className="modal fade" id="myModal">
@@ -43,4 +45,10 @@ class ViewDetailModal extends Component {
   }
 }
 
-export default ViewDetailModal;
+let mapStateToProps = (state) => {
+  return {
+    detailShoe: state.shoeReducer.detailShoe,
+  };
+};
+
+export default connect(mapStateToProps)(ViewDetailModal);

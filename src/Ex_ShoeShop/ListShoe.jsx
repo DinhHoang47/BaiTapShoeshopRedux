@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ItemShoe from "./ItemShoe";
 
 class ListShoe extends Component {
@@ -7,14 +8,7 @@ class ListShoe extends Component {
       <div className="container" style={{ marginTop: 67 }}>
         <div className="row">
           {this.props.data.map((item, index) => {
-            return (
-              <ItemShoe
-                handleViewDetail={this.props.handleViewDetail}
-                handleAddToCart={this.props.handleAddToCart}
-                key={index.toString() + index}
-                detail={item}
-              />
-            );
+            return <ItemShoe key={index.toString() + index} detail={item} />;
           })}
         </div>
       </div>
@@ -22,4 +16,10 @@ class ListShoe extends Component {
   }
 }
 
-export default ListShoe;
+let mapStateToProps = (state) => {
+  return {
+    data: state.shoeReducer.shoeArr,
+  };
+};
+
+export default connect(mapStateToProps)(ListShoe);
